@@ -1,6 +1,6 @@
 'use client'
- 
-import 'aframe';
+
+import 'aframe'
 
 export default function Home() {
   return (
@@ -12,9 +12,14 @@ export default function Home() {
         <a-camera position="0 0 5">
           <a-cursor></a-cursor>
         </a-camera>
-        <a-sky color="#ECECEC" scale="-2 2 2" radius="300" src="./assets/images/temple-min.jpeg"></a-sky>
+        <a-sky
+          color="#ECECEC"
+          scale="-2 2 2"
+          radius="300"
+          src="./assets/images/temple-min.jpeg"
+        ></a-sky>
       </a-scene>
       <div id="info-container"></div>
     </>
-  );
+  )
 }
