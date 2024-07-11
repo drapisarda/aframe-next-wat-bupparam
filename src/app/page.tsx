@@ -1,15 +1,16 @@
 'use client'
 
 import 'aframe'
-import InfoBox from './InfoBox'
+import ChoiceBox from './ChoiceBox'
 
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import IncenseVase from './IncenseVase'
 
 const Home: React.FC = () => {
+  const demoManage = (e, m) => console.log('message: ', m, e)
   return (
     <>
-      <a-scene my-scene id="scene">
+      <a-scene my-scene id="scene" cursor="rayOrigin:mouse">
         <a-light type="ambient" color="#FFF" intensity="1"></a-light>
         <a-assets >
           <a-asset-item id="vase" src="assets/models/decorative_vase/scene.gltf"></a-asset-item>
@@ -23,9 +24,9 @@ const Home: React.FC = () => {
           radius="300"
           src="assets/images/temple-min.jpeg"
         ></a-sky>
-        <InfoBox position="-437.416 -387.757 28.266">
-          <IncenseVase />   
-        </InfoBox>
+        <ChoiceBox position="-420 -387 28" onYes={(e) => demoManage(e, 'yes')} onNo={(e) => demoManage(e, 'no')}>
+          <IncenseVase />
+        </ChoiceBox>
       </a-scene>
       <div id="info-container"></div>
     </>
