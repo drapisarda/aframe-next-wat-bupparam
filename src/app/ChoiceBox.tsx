@@ -42,7 +42,6 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({ children, position, onYes, onNo }
     console.log('hi')
     target.color = highlightColor
   }
-  // const lowlightBg = (target) => target.color(lowlightColor)
 
   useEffect(() => {
     const model = modelRef.current;
@@ -57,17 +56,9 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({ children, position, onYes, onNo }
 
     if (optionYes) {
       optionYes.addEventListener('mouseenter', () => highlightBg(optionYes));
-      // optionYes.addEventListener('mouseleave', () => lowlightBg(optionYes));
     }
 
-    // if (optionNo) {
-    //   optionNo.addEventListener('mouseenter', () => highlightBg(optionNo));
-    //   optionNo.addEventListener('mouseleave', () => lowlightBg(optionNo));
-    // }
-
-
     return () => {
-      // Cleanup function to remove the event listener
       if (model) {
         model.removeEventListener('mouseenter', highlightModel);
         model.removeEventListener('mouseleave', lowlightModel);
@@ -75,13 +66,7 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({ children, position, onYes, onNo }
 
       if (optionYes) {
         optionYes.removeEventListener('mouseenter', () => highlightBg(optionYes));
-        // optionYes.removeEventListener('mouseleave', () => lowlightBg(optionYes));
       }
-
-      // if (optionNo) {
-      //   optionNo.removeEventListener('mouseenter', highlightBg);
-      //   optionNo.removeEventListener('mouseleave', lowlightBg);
-      // }
     };
 
   }, []);
