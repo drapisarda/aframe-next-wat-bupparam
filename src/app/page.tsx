@@ -4,11 +4,27 @@ import 'aframe'
 import ChoiceBox from './ChoiceBox'
 import InfoBox from './InfoBox'
 
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import IncenseVase from './IncenseVase'
+import IncenseStick, {IncenseStickProps} from './IncenseStick'
 
 const Home: React.FC = () => {
   const demoManage = (e, m) => console.log('message: ', m, e)
+  const [incenseSticks, updateIncenseSticks] = useState<IncenseStickProps[]>([]);
+
+  const getRandomCoordinateXZ = () => Math.round((Math.random() * (20) - 10) * 100) / 100
+  const getRandomCoordinateY = () => Math.round((Math.random() * (122 - 107) + 107) * 100) / 100
+  const getRandomRotation = () => Math.round((Math.random() * (10 + 10) - 10) * 100) / 100
+
+  const addIncense = () => {
+    const newIncensePosition: string = `${getRandomCoordinateXZ()} ${getRandomCoordinateY()} ${getRandomCoordinateXZ()}`
+    const newRotation: string = `${getRandomRotation()} ${getRandomRotation()} ${getRandomRotation()}`
+    updateIncenseSticks([...incenseSticks, {position :newIncensePosition, rotation: newRotation}]);
+  }
+
+  useEffect(() => {
+  }, [incenseSticks])
+
   return (
     <>
       <a-scene my-scene id="scene" cursor="rayOrigin:mouse">
@@ -102,9 +118,14 @@ const Home: React.FC = () => {
 
         <ChoiceBox
           position="-420 -387 28"
-          onYes={(e) => demoManage(e, 'yes')}
+          onYes={addIncense}
           onNo={(e) => demoManage(e, 'no')}
         >
+          {incenseSticks.map((stick, index) => {
+            return (
+              <IncenseStick key={index} position={stick.position} rotation={stick.rotation} />
+            )
+          })}
           <IncenseVase />
         </ChoiceBox>
       </a-scene>
