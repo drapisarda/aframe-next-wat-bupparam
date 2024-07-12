@@ -21,8 +21,6 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({
   const [lightIntensity, setLightIntensity] = useState('0')
   const displayInfo = () => setShowInfo(true)
   const hideInfo = () => setShowInfo(false)
-  const highlightColor = '#F00'
-  const lowlightColor = '#000'
 
   const onClickYes = (e: Event) => {
     if (onYes) onYes(e)
@@ -35,41 +33,22 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({
   }
 
   const modelRef = useRef(null)
-  const optionYesRef = useRef(null)
-  const optionNoRef = useRef(null)
 
   const highlightModel = () => setLightIntensity('1')
   const lowlightModel = () => setLightIntensity('0')
 
-  const highlightBg = (target) => {
-    console.log('hi')
-    target.color = highlightColor
-  }
-
   useEffect(() => {
     const model = modelRef.current
-    const optionYes = optionYesRef.current
-    const optionNo = optionNoRef.current
 
     if (model) {
       model.addEventListener('mouseenter', highlightModel)
       model.addEventListener('mouseleave', lowlightModel)
     }
 
-    if (optionYes) {
-      optionYes.addEventListener('mouseenter', () => highlightBg(optionYes))
-    }
-
     return () => {
       if (model) {
         model.removeEventListener('mouseenter', highlightModel)
         model.removeEventListener('mouseleave', lowlightModel)
-      }
-
-      if (optionYes) {
-        optionYes.removeEventListener('mouseenter', () =>
-          highlightBg(optionYes),
-        )
       }
     }
   }, [])

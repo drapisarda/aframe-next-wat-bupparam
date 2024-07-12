@@ -2,6 +2,7 @@
 
 import 'aframe'
 import ChoiceBox from './ChoiceBox'
+import InfoBox from './InfoBox'
 
 import React, { useEffect, useRef } from 'react'
 import IncenseVase from './IncenseVase'
@@ -27,6 +28,27 @@ const Home: React.FC = () => {
           radius="300"
           src="assets/images/temple-min.jpeg"
         ></a-sky>
+        <InfoBox
+          position="-287.2466 -94.2787 -477.94721"
+          color="#000"
+          height="100"
+          width="100"
+        >
+          <a-text
+            height="256"
+            width="256"
+            value="Suphankanlaya was a 16th-century Siamese princess who 
+              was a queen consort of King Bayinnaung of Burma. 
+              There are very few historical records of her life, but 
+              legends about her are widespread in Thailand. 
+              Many Thais revere her as a national heroine or even as a popular deity."
+            anchor="center"
+            align='left'
+            position="0 0 3"
+            letter-spacing='2'
+            line-height='60'
+          />
+        </InfoBox>
         <ChoiceBox
           position="-420 -387 28"
           onYes={(e) => demoManage(e, 'yes')}
