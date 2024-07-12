@@ -52,7 +52,7 @@ const Home: React.FC = () => {
 
         <InfoBox
           class="jade-buddah"
-          position="44 37.127 347.924"
+          position="44 37.127 447.924"
           color="#000"
           height="100"
           width="100"
