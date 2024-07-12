@@ -7,7 +7,7 @@ type InfoBoxProps = {
   height: string
   width: string
   color: string
-  value: string
+  rotation: string
 }
 
 const InfoBox: React.FC<InfoBoxProps> = ({
@@ -16,6 +16,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
   height,
   width,
   color,
+  rotation,
 }) => {
   const maxOpacity = 0.4
   const [boxOpacity, setBoxOpacity] = useState(0)
@@ -24,7 +25,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
   const infoBoxHeight = children.props.height
   const infoBoxWidth = children.props.width
   const infoBoxPosition = `${(Number(width) + Number(infoBoxHeight)) / 2 + 50} ${height} 0`
-  const closeBoxPosition = `${Number(infoBoxWidth) / 2 - 30} ${Number(infoBoxHeight)/-2 + 30} 2`
+  const closeBoxPosition = `${Number(infoBoxWidth) / 2 - 30} ${Number(infoBoxHeight) / -2 + 30} 2`
 
   console.log(closeBoxPosition)
 
@@ -73,6 +74,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
         width={width}
         color={color}
         opacity={boxOpacity}
+        rotation={rotation}
       >
         <a-box
           ref={boxRef}
@@ -103,7 +105,13 @@ const InfoBox: React.FC<InfoBoxProps> = ({
             width="60"
             depth="1"
           >
-            <a-text position="0 0 3" height="400" width="400" align="center" value="close" />
+            <a-text
+              position="0 0 3"
+              height="400"
+              width="400"
+              align="center"
+              value="close"
+            />
           </HoverBox>
         </a-box>
       </a-box>

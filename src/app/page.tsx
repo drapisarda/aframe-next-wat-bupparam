@@ -43,10 +43,40 @@ const Home: React.FC = () => {
               legends about her are widespread in Thailand. 
               Many Thais revere her as a national heroine or even as a popular deity."
             anchor="center"
-            align='left'
+            align="left"
             position="0 0 3"
-            letter-spacing='2'
-            line-height='60'
+            letter-spacing="2"
+            line-height="60"
+          />
+        </InfoBox>
+
+        <InfoBox
+          class="jade-buddah"
+          position="44 37.127 347.924"
+          color="#000"
+          height="100"
+          width="100"
+          rotation="0 180 0"
+        >
+          <a-text
+            height="350"
+            width="256"
+            value="
+              Buddhist art is visual art produced in the context of Buddhism. \n
+              It includes depictions of Gautama Buddha and other Buddhas and bodhisattvas, 
+              notable Buddhist figures both historical and mythical, narrative scenes from their 
+              lives, mandalas, and physical objects associated with Buddhist practice, such as 
+              vajras, bells, stupas and Buddhist temple architecture.\n
+              Buddhist art originated in the north of the Indian subcontinent, 
+              in modern India, Pakistan and Afghanistan, with the earliest survivals 
+              dating from a few centuries after the historical life of 
+              Siddhartha Gautama from the 6th to 5th century BCE.
+            "
+            anchor="center"
+            align="left"
+            position="0 0 3"
+            letter-spacing="2"
+            line-height="60"
           />
         </InfoBox>
         <ChoiceBox
