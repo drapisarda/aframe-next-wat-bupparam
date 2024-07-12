@@ -51,15 +51,15 @@ const Home: React.FC = () => {
         </InfoBox>
 
         <InfoBox
-          class="jade-buddah"
-          position="44 37.127 447.924"
+          id="jade-buddah"
+          position="44 37.127 347.924"
           color="#000"
           height="100"
           width="100"
-          rotation="0 180 0"
+          rotation="0 160 0"
         >
           <a-text
-            height="350"
+            height="280"
             width="256"
             value="
               Buddhist art is visual art produced in the context of Buddhism. \n
@@ -79,6 +79,30 @@ const Home: React.FC = () => {
             line-height="60"
           />
         </InfoBox>
+
+        <InfoBox
+          id="royal-family"
+          position="-196.557 -20 393"
+          color="#000"
+          height="100"
+          width="100"
+          rotation="0 110 0"
+        >
+          <a-text
+            height="350"
+            width="256"
+            value="
+              The king of Thailand (Thai: พระมหากษัตริย์ไทย, historically, king of Siam; Thai: พระเจ้ากรุงสยาม) \n
+              is the head of state and head of the ruling Royal House of Chakri.
+            "
+            anchor="center"
+            align="left"
+            position="0 0 3"
+            letter-spacing="2"
+            line-height="60"
+          />
+        </InfoBox>
+
         <ChoiceBox
           position="-420 -387 28"
           onYes={(e) => demoManage(e, 'yes')}

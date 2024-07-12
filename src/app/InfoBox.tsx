@@ -24,8 +24,8 @@ const InfoBox: React.FC<InfoBoxProps> = ({
 
   const infoBoxHeight = children.props.height
   const infoBoxWidth = children.props.width
-  const infoBoxPosition = `${(Number(width) + Number(infoBoxHeight)) / 2 + 50} ${height} 100`
-  const closeBoxPosition = `${Number(infoBoxWidth) / 2 - 30} ${Number(infoBoxHeight) / -2 + 30} 2`
+  const infoBoxPosition = `${(Number(width) + Number(infoBoxHeight)) / 2 + 50} ${height} 0`
+  const closeBoxPosition = `${Number(infoBoxWidth) / 2 - 40} ${Number(infoBoxHeight) / -2 + 30} 3`
 
   console.log(closeBoxPosition)
 
