@@ -30,7 +30,6 @@ const Home: React.FC = () => {
         ></a-sky>
         <InfoBox
           position="-287.2466 -94.2787 -477.94721"
-          color="#000"
           height="100"
           width="100"
         >
@@ -53,7 +52,6 @@ const Home: React.FC = () => {
         <InfoBox
           id="jade-buddah"
           position="44 37.127 347.924"
-          color="#000"
           height="100"
           width="100"
           rotation="0 160 0"
@@ -83,7 +81,6 @@ const Home: React.FC = () => {
         <InfoBox
           id="royal-family"
           position="-196.557 -20 393"
-          color="#000"
           height="100"
           width="100"
           rotation="0 110 0"

@@ -6,7 +6,6 @@ type InfoBoxProps = {
   position: string
   height: string
   width: string
-  color: string
   rotation: string
 }
 
@@ -15,7 +14,6 @@ const InfoBox: React.FC<InfoBoxProps> = ({
   position,
   height,
   width,
-  color,
   rotation,
 }) => {
   const maxOpacity = 0.4
@@ -52,12 +50,12 @@ const InfoBox: React.FC<InfoBoxProps> = ({
     }
   }, [contentIsVisible])
 
-  const show = (e) => {
+  const show = (e: Event) => {
     e.stopPropagation()
     setContentIsVisible(true)
     setBoxOpacity(0)
   }
-  const hide = (e) => {
+  const hide = (e: Event) => {
     e.stopPropagation()
     setContentIsVisible(false)
     setBoxOpacity(0)
@@ -65,22 +63,21 @@ const InfoBox: React.FC<InfoBoxProps> = ({
 
   return (
     <>
-      <a-box
+      <a-entity
         position={position}
         height={height}
         width={width}
-        color={color}
-        opacity={boxOpacity}
         rotation={rotation}
-      >
+        >
         <a-box
+          opacity={boxOpacity}
           ref={boxRef}
+          color="#ddc26d"
           position="0 0 0"
           height={height}
           width={width}
           depth="2"
           onClick={show}
-          opacity="0"
         ></a-box>
         <a-box
           visible={contentIsVisible}
@@ -111,7 +108,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
             />
           </HoverBox>
         </a-box>
-      </a-box>
+      </a-entity>
     </>
   )
 }
