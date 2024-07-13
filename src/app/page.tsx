@@ -1,6 +1,7 @@
 'use client'
 
 import 'aframe'
+import './LimitedWasdControls'
 import ChoiceBox from './ChoiceBox'
 import InfoBox from './InfoBox'
 
@@ -23,7 +24,7 @@ const Home: React.FC = () => {
   }
 
   useEffect(() => {
-  }, [incenseSticks])
+  }, [])
 
   return (
     <>
@@ -35,7 +36,12 @@ const Home: React.FC = () => {
             src="assets/models/decorative_vase/scene.gltf"
           ></a-asset-item>
         </a-assets>
-        <a-camera position="0 0 5">
+        <a-camera 
+          onChange={(e) => console.log(e)}
+          position="0 0 5" 
+          wasd-controls="acceleration: 1000" 
+          limited-wasd-controls="minX: -50; maxX: 50; minY: -50; maxY: 50; minZ: -50; maxZ: 50"
+        >
           <a-cursor></a-cursor>
         </a-camera>
         <a-sky
@@ -129,7 +135,6 @@ const Home: React.FC = () => {
           <IncenseVase />
         </ChoiceBox>
       </a-scene>
-      <div id="info-container"></div>
     </>
   )
 }
