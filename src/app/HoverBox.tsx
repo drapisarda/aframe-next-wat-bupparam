@@ -10,7 +10,7 @@ type HoverBoxProps = {
   children: ReactNode
   defaultColor: string
   hoverColor: string
-  onClick: MouseEventHandler<HTMLElement>
+  onClick: (e: React.MouseEvent<HTMLElement>) => void | undefined
   position: string
   height: string
   width: string
@@ -30,7 +30,7 @@ const HoverBox: React.FC<HoverBoxProps> = ({
   opacity,
 }) => {
   const [color, setColor] = useState(defaultColor)
-  const boxRef = useRef(null)
+  const boxRef = useRef<HTMLElement>(null)
 
   const handleMouseEnter = () => setColor(hoverColor)
   const handleMouseLeave = () => setColor(defaultColor)

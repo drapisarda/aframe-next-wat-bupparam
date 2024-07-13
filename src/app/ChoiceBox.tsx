@@ -1,14 +1,21 @@
 'use client'
 
-import React, { useEffect, useRef, useState, type ReactNode } from 'react'
+import React, {
+  MouseEventHandler,
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from 'react'
 import 'aframe'
 import HoverBox from './HoverBox'
+import '../aframe-types.d.ts'
 
 type ChoiceBoxProps = {
   children: ReactNode
   position: string
-  onYes: (e: Event) => void | undefined
-  onNo: (e: Event) => void | undefined
+  onYes: (e: React.MouseEvent<HTMLElement>) => void | undefined
+  onNo: (e: React.MouseEvent<HTMLElement>) => void | undefined
 }
 
 const ChoiceBox: React.FC<ChoiceBoxProps> = ({
@@ -22,17 +29,17 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({
   const displayInfo = () => setShowInfo(true)
   const hideInfo = () => setShowInfo(false)
 
-  const onClickYes = (e: Event) => {
+  const onClickYes = (e: React.MouseEvent<HTMLElement>) => {
     if (onYes) onYes(e)
     hideInfo()
   }
 
-  const onClickNo = (e: Event) => {
+  const onClickNo = (e: React.MouseEvent<HTMLElement>) => {
     if (onNo) onNo(e)
     hideInfo()
   }
 
-  const modelRef = useRef(null)
+  const modelRef = useRef<HTMLElement>(null)
 
   const highlightModel = () => setLightIntensity('1')
   const lowlightModel = () => setLightIntensity('0')
@@ -69,7 +76,7 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({
         scale="1 1 1"
         rotation="0 90 0"
         visible={showInfo}
-        transparent="true"
+        transparent={true}
       >
         <a-text
           position="-48 19 2.5"

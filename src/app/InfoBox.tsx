@@ -1,15 +1,18 @@
-import { useEffect, useRef, useState, ReactNode } from 'react'
+import { useEffect, useRef, useState, ReactElement } from 'react'
 import HoverBox from './HoverBox'
+import '../aframe-types.d.ts'
 
 type InfoBoxProps = {
-  children: ReactNode
+  id?: string
+  children: ReactElement
   position: string
   height: string
   width: string
-  rotation: string
+  rotation?: string
 }
 
 const InfoBox: React.FC<InfoBoxProps> = ({
+  id,
   children,
   position,
   height,
@@ -20,12 +23,12 @@ const InfoBox: React.FC<InfoBoxProps> = ({
   const [boxOpacity, setBoxOpacity] = useState(0)
   const [contentIsVisible, setContentIsVisible] = useState(false)
 
-  const infoBoxHeight = children.props.height
-  const infoBoxWidth = children.props.width
-  const infoBoxPosition = `${(Number(width) + Number(infoBoxWidth)/2)} ${height} 0`
+  const infoBoxHeight = children ? children.props.height : 0
+  const infoBoxWidth = children ? children.props.width : 0
+  const infoBoxPosition = `${Number(width) + Number(infoBoxWidth) / 2} ${height} 0`
   const closeBoxPosition = `${Number(infoBoxWidth) / 2 - 40} ${Number(infoBoxHeight) / -2 + 30} 3`
 
-  const boxRef = useRef(null)
+  const boxRef = useRef<HTMLElement>(null)
 
   const handleMouseEnter = () => {
     if (contentIsVisible) return
@@ -50,12 +53,12 @@ const InfoBox: React.FC<InfoBoxProps> = ({
     }
   }, [contentIsVisible])
 
-  const show = (e: Event) => {
+  const show = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation()
     setContentIsVisible(true)
     setBoxOpacity(0)
   }
-  const hide = (e: Event) => {
+  const hide = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation()
     setContentIsVisible(false)
     setBoxOpacity(0)
@@ -68,7 +71,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
         height={height}
         width={width}
         rotation={rotation}
-        >
+      >
         <a-box
           opacity={boxOpacity}
           ref={boxRef}

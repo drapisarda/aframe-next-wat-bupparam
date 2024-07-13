@@ -2,29 +2,37 @@
 
 import 'aframe'
 import './LimitedWasdControls'
+import '../aframe-types.d.ts'
+
 import ChoiceBox from './ChoiceBox'
 import InfoBox from './InfoBox'
 
 import React, { useEffect, useState } from 'react'
 import IncenseVase from './IncenseVase'
-import IncenseStick, {IncenseStickProps} from './IncenseStick'
+import IncenseStick, { IncenseStickProps } from './IncenseStick'
 
 const Home: React.FC = () => {
-  const demoManage = (e, m) => console.log('message: ', m, e)
-  const [incenseSticks, updateIncenseSticks] = useState<IncenseStickProps[]>([]);
+  const demoManage = (e: React.MouseEvent<HTMLElement>, m: string) =>
+    console.log('message: ', m, e)
+  const [incenseSticks, updateIncenseSticks] = useState<IncenseStickProps[]>([])
 
-  const getRandomCoordinateXZ = () => Math.round((Math.random() * (20) - 10) * 100) / 100
-  const getRandomCoordinateY = () => Math.round((Math.random() * (122 - 107) + 107) * 100) / 100
-  const getRandomRotation = () => Math.round((Math.random() * (10 + 10) - 10) * 100) / 100
+  const getRandomCoordinateXZ = () =>
+    Math.round((Math.random() * 20 - 10) * 100) / 100
+  const getRandomCoordinateY = () =>
+    Math.round((Math.random() * (122 - 107) + 107) * 100) / 100
+  const getRandomRotation = () =>
+    Math.round((Math.random() * (10 + 10) - 10) * 100) / 100
 
   const addIncense = () => {
     const newIncensePosition: string = `${getRandomCoordinateXZ()} ${getRandomCoordinateY()} ${getRandomCoordinateXZ()}`
     const newRotation: string = `${getRandomRotation()} ${getRandomRotation()} ${getRandomRotation()}`
-    updateIncenseSticks([...incenseSticks, {position :newIncensePosition, rotation: newRotation}]);
+    updateIncenseSticks([
+      ...incenseSticks,
+      { position: newIncensePosition, rotation: newRotation },
+    ])
   }
 
-  useEffect(() => {
-  }, [])
+  useEffect(() => {}, [])
 
   return (
     <>
@@ -36,10 +44,10 @@ const Home: React.FC = () => {
             src="assets/models/decorative_vase/scene.gltf"
           ></a-asset-item>
         </a-assets>
-        <a-camera 
+        <a-camera
           onChange={(e) => console.log(e)}
-          position="0 0 5" 
-          wasd-controls="acceleration: 1000" 
+          position="0 0 5"
+          wasd-controls="acceleration: 1000"
           limited-wasd-controls="minX: -50; maxX: 50; minY: -50; maxY: 50; minZ: -50; maxZ: 50"
         >
           <a-cursor></a-cursor>
@@ -125,11 +133,15 @@ const Home: React.FC = () => {
         <ChoiceBox
           position="-420 -387 28"
           onYes={addIncense}
-          onNo={(e) => demoManage(e, 'no')}
+          onNo={(e: React.MouseEvent<HTMLElement>) => demoManage(e, 'no')}
         >
           {incenseSticks.map((stick, index) => {
             return (
-              <IncenseStick key={index} position={stick.position} rotation={stick.rotation} />
+              <IncenseStick
+                key={index}
+                position={stick.position}
+                rotation={stick.rotation}
+              />
             )
           })}
           <IncenseVase />
