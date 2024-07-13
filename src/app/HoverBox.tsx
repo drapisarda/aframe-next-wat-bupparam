@@ -46,7 +46,7 @@ const HoverBox: React.FC<HoverBoxProps> = ({
       box.removeEventListener('mouseenter', handleMouseEnter)
       box.removeEventListener('mouseleave', handleMouseLeave)
     }
-  }, [hoverColor, defaultColor])
+  }, [])
 
   return (
     <a-box
