@@ -1,3 +1,5 @@
+import 'aframe'
+
 AFRAME.registerComponent('limited-wasd-controls', {
   schema: {
     minX: { type: 'number', default: -10 },

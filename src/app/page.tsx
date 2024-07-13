@@ -1,7 +1,5 @@
 'use client'
 
-import 'aframe'
-import './LimitedWasdControls'
 import '../aframe-types.d.ts'
 
 import ChoiceBox from './ChoiceBox'
@@ -32,7 +30,9 @@ const Home: React.FC = () => {
     ])
   }
 
-  useEffect(() => {}, [])
+  useEffect(() => {
+    require('aframe');
+  }, [])
 
   return (
     <>

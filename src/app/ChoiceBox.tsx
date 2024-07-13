@@ -1,5 +1,3 @@
-'use client'
-
 import React, {
   MouseEventHandler,
   useEffect,
@@ -7,7 +5,7 @@ import React, {
   useState,
   type ReactNode,
 } from 'react'
-import 'aframe'
+
 import HoverBox from './HoverBox'
 import '../aframe-types.d.ts'
 
