@@ -1,6 +1,6 @@
 'use client'
 
-import {memo} from 'react'
+import { memo } from 'react'
 
 const IncenseVase = () => {
   return (
