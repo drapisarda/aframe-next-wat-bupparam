@@ -4,7 +4,7 @@ import React, {
   useRef,
   useState,
   type ReactNode,
-  useCallback
+  useCallback,
 } from 'react'
 
 import HoverBox from './HoverBox'
@@ -25,27 +25,27 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({
 }: ChoiceBoxProps) => {
   const [showInfo, setShowInfo] = useState(false)
   const [lightIntensity, setLightIntensity] = useState('0')
-  const displayInfo = useCallback(() => setShowInfo(true), []);
-  const hideInfo = useCallback(() => setShowInfo(false), []);
+  const displayInfo = useCallback(() => setShowInfo(true), [])
+  const hideInfo = useCallback(() => setShowInfo(false), [])
 
   const onClickYes = useCallback(
     (e: React.MouseEvent<HTMLElement>) => {
-      onYes(e);
-      hideInfo();
+      onYes(e)
+      hideInfo()
     },
-    [onYes, hideInfo]
-  );
+    [onYes, hideInfo],
+  )
 
   const onClickNo = useCallback(
     (e: React.MouseEvent<HTMLElement>) => {
-      onNo(e);
-      hideInfo();
+      onNo(e)
+      hideInfo()
     },
-    [onNo, hideInfo]
-  );
+    [onNo, hideInfo],
+  )
 
   const modelRef = useRef<HTMLElement>(null)
-  
+
   useEffect(() => {
     const highlightModel = () => setLightIntensity('1')
     const lowlightModel = () => setLightIntensity('0')

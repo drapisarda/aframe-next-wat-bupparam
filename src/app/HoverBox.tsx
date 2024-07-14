@@ -4,7 +4,7 @@ import {
   useRef,
   useState,
   ReactNode,
-  useCallback
+  useCallback,
 } from 'react'
 
 type HoverBoxProps = {
@@ -30,10 +30,10 @@ const HoverBox: React.FC<HoverBoxProps> = ({
 }) => {
   const [color, setColor] = useState(defaultColor)
   const boxRef = useRef<HTMLElement>(null)
-  
+
   useEffect(() => {
     const handleMouseEnter = () => setColor(hoverColor)
-    const handleMouseLeave = () => setColor(defaultColor);
+    const handleMouseLeave = () => setColor(defaultColor)
 
     const box = boxRef.current
     if (!box) return

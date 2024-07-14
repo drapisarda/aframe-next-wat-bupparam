@@ -36,13 +36,13 @@ const InfoBox: React.FC<InfoBoxProps> = ({
   const closeBoxPosition = `${Number(infoBoxWidth) / 2 - 40} ${Number(infoBoxHeight) / -2 + 30} 3`
 
   const boxRef = useRef<HTMLElement>(null)
-  
+
   useEffect(() => {
     const handleMouseEnter = () => {
       if (contentIsVisible) return
       setBoxOpacity(maxOpacity)
     }
-  
+
     const handleMouseLeave = () => {
       if (contentIsVisible) return
       setBoxOpacity(0)
