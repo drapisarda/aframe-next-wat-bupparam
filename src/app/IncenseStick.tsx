@@ -8,7 +8,6 @@ export type IncenseStickProps = {
 }
 
 const IncenseStick = ({ position, rotation }: IncenseStickProps) => {
-  console.log('IncenseStick')
   return (
     <a-entity className="incense" position={position} rotation={rotation}>
       <a-cylinder
