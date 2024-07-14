@@ -25,7 +25,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
 
   const infoBoxHeight = children ? children.props.height : 0
   const infoBoxWidth = children ? children.props.width : 0
-  const infoBoxPosition = `${Number(width) + Number(infoBoxWidth) / 2} ${height} 0`
+  const infoBoxPosition = `${(Number(width) + Number(infoBoxWidth) )/ 2} ${Number(height) / 2} 0`
   const closeBoxPosition = `${Number(infoBoxWidth) / 2 - 40} ${Number(infoBoxHeight) / -2 + 30} 3`
 
   const boxRef = useRef<HTMLElement>(null)
@@ -72,22 +72,20 @@ const InfoBox: React.FC<InfoBoxProps> = ({
         width={width}
         rotation={rotation}
       >
-        <a-box
+        <a-plane
           opacity={boxOpacity}
           ref={boxRef}
           color="#ddc26d"
           position="0 0 0"
           height={height}
           width={width}
-          depth="2"
           onClick={show}
-        ></a-box>
-        <a-box
+        ></a-plane>
+        <a-plane
           visible={contentIsVisible}
           position={infoBoxPosition}
           height={infoBoxHeight}
           width={infoBoxWidth}
-          depth="1"
           color="#000"
           opacity="0.4"
         >
@@ -100,7 +98,6 @@ const InfoBox: React.FC<InfoBoxProps> = ({
             opacity="0.4"
             height="40"
             width="60"
-            depth="1"
           >
             <a-text
               position="0 0 3"
@@ -110,7 +107,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
               value="close"
             />
           </HoverBox>
-        </a-box>
+        </a-plane>
       </a-entity>
     </>
   )

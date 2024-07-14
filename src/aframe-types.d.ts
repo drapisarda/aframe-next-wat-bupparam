@@ -58,5 +58,16 @@ declare namespace JSX {
       React.HTMLAttributes<HTMLElement>,
       HTMLElement
     > & {}
+    'a-plane': React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLElement>,
+      HTMLElement
+    > & {
+      opacity?: number | string
+      position?: string
+      height?: string | number
+      width?: string | number
+      rotation?: string | number
+      visible?: boolean
+    }
   }
 }

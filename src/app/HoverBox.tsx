@@ -14,7 +14,6 @@ type HoverBoxProps = {
   position: string
   height: string
   width: string
-  depth: string
   opacity: string
 }
 
@@ -26,7 +25,6 @@ const HoverBox: React.FC<HoverBoxProps> = ({
   position,
   height,
   width,
-  depth,
   opacity,
 }) => {
   const [color, setColor] = useState(defaultColor)
@@ -49,18 +47,17 @@ const HoverBox: React.FC<HoverBoxProps> = ({
   }, [])
 
   return (
-    <a-box
+    <a-plane
       ref={boxRef}
       color={color}
       onClick={onClick}
       position={position}
       height={height}
       width={width}
-      depth={depth}
       opacity={opacity}
     >
       {children}
-    </a-box>
+    </a-plane>
   )
 }
 
