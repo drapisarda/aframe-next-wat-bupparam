@@ -1,5 +1,6 @@
 'use client'
 import '../aframe-types.d.ts'
+import { memo } from 'react'
 
 export type IncenseStickProps = {
   position: string
@@ -7,6 +8,7 @@ export type IncenseStickProps = {
 }
 
 const IncenseStick = ({ position, rotation }: IncenseStickProps) => {
+  console.log('IncenseStick')
   return (
     <a-entity className="incense" position={position} rotation={rotation}>
       <a-cylinder
@@ -47,4 +49,4 @@ const IncenseStick = ({ position, rotation }: IncenseStickProps) => {
   )
 }
 
-export default IncenseStick
+export default memo(IncenseStick)
