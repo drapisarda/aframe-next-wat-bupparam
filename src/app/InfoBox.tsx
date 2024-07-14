@@ -19,7 +19,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
   height,
   width,
   rotation,
-  panelPosition = 'right'
+  panelPosition = 'right',
 }) => {
   const maxOpacity = 0.4
   const [boxOpacity, setBoxOpacity] = useState(0)
@@ -27,7 +27,11 @@ const InfoBox: React.FC<InfoBoxProps> = ({
 
   const infoBoxHeight = children ? children.props.height : 0
   const infoBoxWidth = children ? children.props.width : 0
-  const infoBoxPositionX = (panelPosition === 'right' ? 1 : -1) * (Number(width) + Number(infoBoxWidth) )/ 2 + 50
+  const infoBoxPositionX =
+    ((panelPosition === 'right' ? 1 : -1) *
+      (Number(width) + Number(infoBoxWidth))) /
+      2 +
+    50
   const infoBoxPosition = `${infoBoxPositionX} 0 100`
   const closeBoxPosition = `${Number(infoBoxWidth) / 2 - 40} ${Number(infoBoxHeight) / -2 + 30} 3`
 

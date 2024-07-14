@@ -9,7 +9,7 @@ import InteractiveIncenseVase from './InteractiveIncenseVase'
 
 const Home: React.FC = () => {
   useEffect(() => {
-    require('aframe');
+    require('aframe')
     require('./LimitedWasdControls.js')
   }, [])
 
@@ -64,7 +64,7 @@ const Home: React.FC = () => {
           height="150"
           width="150"
           rotation="0 170 0"
-          panelPosition='left'
+          panelPosition="left"
         >
           <a-text
             height="280"
@@ -109,9 +109,7 @@ const Home: React.FC = () => {
             line-height="60"
           />
         </InfoBox>
-        <InteractiveIncenseVase
-          position="-420 -387 28"
-        />
+        <InteractiveIncenseVase position="-420 -387 28" />
       </a-scene>
     </>
   )

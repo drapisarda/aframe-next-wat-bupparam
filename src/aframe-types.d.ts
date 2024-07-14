@@ -27,7 +27,7 @@ declare namespace JSX {
       depth?: string | number
       emissive?: string | number
       emissiveIntensity?: string | number
-      src?: string,
+      src?: string
       material?: string
     }
     'a-entity': React.DetailedHTMLProps<

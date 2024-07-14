@@ -5,8 +5,8 @@ import IncenseVase from './IncenseVase'
 import IncenseStick, { IncenseStickProps } from './IncenseStick'
 import { useState } from 'react'
 
-const InteractiveIncenseVase = (props: {position: string}) => {
-  const {position} = props
+const InteractiveIncenseVase = (props: { position: string }) => {
+  const { position } = props
   const demoManage = (e: React.MouseEvent<HTMLElement>, m: string) =>
     console.log('message: ', m, e)
   const [incenseSticks, updateIncenseSticks] = useState<IncenseStickProps[]>([])
@@ -29,23 +29,22 @@ const InteractiveIncenseVase = (props: {position: string}) => {
 
   return (
     <ChoiceBox
-    position={position}
-    onYes={addIncense}
-    onNo={(e: React.MouseEvent<HTMLElement>) => demoManage(e, 'no')}
-  >
-    {incenseSticks.map((stick, index) => {
-      return (
-        <IncenseStick
-          key={index}
-          position={stick.position}
-          rotation={stick.rotation}
-        />
-      )
-    })}
-    <IncenseVase />
-  </ChoiceBox>
+      position={position}
+      onYes={addIncense}
+      onNo={(e: React.MouseEvent<HTMLElement>) => demoManage(e, 'no')}
+    >
+      {incenseSticks.map((stick, index) => {
+        return (
+          <IncenseStick
+            key={index}
+            position={stick.position}
+            rotation={stick.rotation}
+          />
+        )
+      })}
+      <IncenseVase />
+    </ChoiceBox>
   )
 }
-
 
 export default InteractiveIncenseVase

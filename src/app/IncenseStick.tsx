@@ -26,8 +26,7 @@ const IncenseStick = ({ position, rotation }: IncenseStickProps) => {
         color="#F00"
         material="emissiveIntensity: 1; emissive: #F00"
         position="0 25 0"
-      >
-      </a-cylinder>
+      ></a-cylinder>
       <a-cylinder
         className="incense__body"
         height="50"
