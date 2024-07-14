@@ -32,6 +32,7 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     require('aframe');
+    require('./LimitedWasdControls.js')
   }, [])
 
   return (
