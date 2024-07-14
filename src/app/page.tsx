@@ -24,7 +24,6 @@ const Home: React.FC = () => {
           ></a-asset-item>
         </a-assets>
         <a-camera
-          onChange={(e) => console.log(e)}
           position="0 0 5"
           wasd-controls="acceleration: 1000"
           limited-wasd-controls="minX: -50; maxX: 50; minY: -50; maxY: 50; minZ: -50; maxZ: 50"
