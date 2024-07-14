@@ -56,7 +56,7 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({
         model.removeEventListener('mouseleave', lowlightModel)
       }
     }
-  }, [])
+  }, [highlightModel, lowlightModel])
 
   return (
     <a-entity position={position} scale="2 2 2">
