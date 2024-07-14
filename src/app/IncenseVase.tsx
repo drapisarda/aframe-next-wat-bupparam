@@ -1,5 +1,7 @@
 'use client'
 
+import {memo} from 'react'
+
 const IncenseVase = () => {
   return (
     <a-entity>
@@ -8,4 +10,4 @@ const IncenseVase = () => {
   )
 }
 
-export default IncenseVase
+export default memo(IncenseVase)
