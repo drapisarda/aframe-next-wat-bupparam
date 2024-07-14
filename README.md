@@ -31,11 +31,13 @@ A public accessible instance of the project can be found [here](https://aframe-n
 ### Run the project locally
 
 Download the project and on a terminal window run:
+
 ```bash
-npm i 
+npm i
 # or
 yarn
 ```
+
 to install the needed dependencies.
 
 Then run the development server with:
