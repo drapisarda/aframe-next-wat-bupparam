@@ -60,10 +60,11 @@ const Home: React.FC = () => {
 
         <InfoBox
           id="jade-buddah"
-          position="60 38 500"
-          height="250"
-          width="250"
+          position="40 60 400"
+          height="150"
+          width="150"
           rotation="0 170 0"
+          panelPosition='left'
         >
           <a-text
             height="280"
