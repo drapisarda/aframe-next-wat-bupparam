@@ -30,6 +30,7 @@ A public accessible instance of the project can be found [here](https://aframe-n
 
 ### Run the project locally
 
+This project is meant to run on a `Node v18.17.0` environment.
 Download the project and on a terminal window run:
 
 ```bash
