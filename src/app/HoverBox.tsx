@@ -4,13 +4,14 @@ import {
   useRef,
   useState,
   ReactNode,
+  useCallback
 } from 'react'
 
 type HoverBoxProps = {
   children: ReactNode
   defaultColor: string
   hoverColor: string
-  onClick: (e: React.MouseEvent<HTMLElement>) => void | undefined
+  onClick: (e: React.MouseEvent<HTMLElement>) => void
   position: string
   height: string
   width: string
@@ -29,11 +30,11 @@ const HoverBox: React.FC<HoverBoxProps> = ({
 }) => {
   const [color, setColor] = useState(defaultColor)
   const boxRef = useRef<HTMLElement>(null)
-
-  const handleMouseEnter = () => setColor(hoverColor)
-  const handleMouseLeave = () => setColor(defaultColor)
-
+  
   useEffect(() => {
+    const handleMouseEnter = () => setColor(hoverColor)
+    const handleMouseLeave = () => setColor(defaultColor);
+
     const box = boxRef.current
     if (!box) return
 
@@ -44,7 +45,7 @@ const HoverBox: React.FC<HoverBoxProps> = ({
       box.removeEventListener('mouseenter', handleMouseEnter)
       box.removeEventListener('mouseleave', handleMouseLeave)
     }
-  }, [])
+  }, [hoverColor, defaultColor])
 
   return (
     <a-plane

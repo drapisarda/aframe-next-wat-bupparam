@@ -4,6 +4,7 @@ import React, {
   useRef,
   useState,
   type ReactNode,
+  useCallback
 } from 'react'
 
 import HoverBox from './HoverBox'
@@ -12,8 +13,8 @@ import '../aframe-types.d.ts'
 type ChoiceBoxProps = {
   children: ReactNode
   position: string
-  onYes: (e: React.MouseEvent<HTMLElement>) => void | undefined
-  onNo: (e: React.MouseEvent<HTMLElement>) => void | undefined
+  onYes: (e: React.MouseEvent<HTMLElement>) => void
+  onNo: (e: React.MouseEvent<HTMLElement>) => void
 }
 
 const ChoiceBox: React.FC<ChoiceBoxProps> = ({
@@ -24,25 +25,31 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({
 }: ChoiceBoxProps) => {
   const [showInfo, setShowInfo] = useState(false)
   const [lightIntensity, setLightIntensity] = useState('0')
-  const displayInfo = () => setShowInfo(true)
-  const hideInfo = () => setShowInfo(false)
+  const displayInfo = useCallback(() => setShowInfo(true), []);
+  const hideInfo = useCallback(() => setShowInfo(false), []);
 
-  const onClickYes = (e: React.MouseEvent<HTMLElement>) => {
-    if (onYes) onYes(e)
-    hideInfo()
-  }
+  const onClickYes = useCallback(
+    (e: React.MouseEvent<HTMLElement>) => {
+      onYes(e);
+      hideInfo();
+    },
+    [onYes, hideInfo]
+  );
 
-  const onClickNo = (e: React.MouseEvent<HTMLElement>) => {
-    if (onNo) onNo(e)
-    hideInfo()
-  }
+  const onClickNo = useCallback(
+    (e: React.MouseEvent<HTMLElement>) => {
+      onNo(e);
+      hideInfo();
+    },
+    [onNo, hideInfo]
+  );
 
   const modelRef = useRef<HTMLElement>(null)
-
-  const highlightModel = () => setLightIntensity('1')
-  const lowlightModel = () => setLightIntensity('0')
-
+  
   useEffect(() => {
+    const highlightModel = () => setLightIntensity('1')
+    const lowlightModel = () => setLightIntensity('0')
+
     const model = modelRef.current
 
     if (model) {
@@ -56,7 +63,7 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({
         model.removeEventListener('mouseleave', lowlightModel)
       }
     }
-  }, [highlightModel, lowlightModel])
+  }, [])
 
   return (
     <a-entity position={position} scale="2 2 2">
