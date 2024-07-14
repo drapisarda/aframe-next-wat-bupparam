@@ -92,7 +92,6 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({
           position="-31.864 -31.038 2.5"
           height="30"
           width="30"
-          depth="1"
         >
           <a-text
             style={{ pointerEvents: 'none' }}
@@ -113,7 +112,6 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({
           position="30.502 -31.038 2.5"
           height="30"
           width="30"
-          depth="1"
         >
           <a-text
             style={{ pointerEvents: 'none' }}
