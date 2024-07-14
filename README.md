@@ -16,11 +16,12 @@ Wat Buppharam (Thai: วัดบุพพาราม, pronounced [wát bùp.p�
 The user can interact with these items by clicking them with the mouse cursor or the visor cursor
 
 ![Interactive item](./public/assets/previews/interact1.png)
+
 ![Interactive item](./public/assets/previews/interact2.png)
+
 ![Interactive item](./public/assets/previews/interact3.png)
+
 ![Interactive item](./public/assets/previews/interact4.png)
-
-
 
 ## Getting Started
 
