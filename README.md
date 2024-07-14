@@ -26,7 +26,19 @@ The user can interact with these items by clicking them with the mouse cursor or
 
 ## Getting Started
 
-First, run the development server:
+A public accessible instance of the project can be found [here](https://aframe-next-wat-bupparam.vercel.app/).
+
+### Run the project locally
+
+Download the project and on a terminal window run:
+```bash
+npm i 
+# or
+yarn
+```
+to install the needed dependencies.
+
+Then run the development server with:
 
 ```bash
 npm run dev
@@ -37,3 +49,5 @@ pnpm dev
 # or
 bun dev
 ```
+
+The project will be run on [http://localhost:3000](http://localhost:3000) or the next available port.
