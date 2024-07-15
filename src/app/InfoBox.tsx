@@ -21,11 +21,11 @@ const InfoBox: React.FC<InfoBoxProps> = ({
   width,
   rotation,
   panelPosition = '0 0 -30',
-  panelRotation = '0 0 0'
+  panelRotation = '0 0 0',
 }) => {
   const maxOpacity = 0.4
-  const closeBoxHeight = "2"
-  const closeBoxWidth = "3"
+  const closeBoxHeight = '2'
+  const closeBoxWidth = '3'
   const [boxOpacity, setBoxOpacity] = useState(0)
   const [contentIsVisible, setContentIsVisible] = useState(false)
   const infoBoxHeight = children ? children.props.height : 0

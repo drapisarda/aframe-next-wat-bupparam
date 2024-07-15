@@ -1,9 +1,4 @@
-import {
-  useEffect,
-  useRef,
-  useState,
-  ReactNode,
-} from 'react'
+import { useEffect, useRef, useState, ReactNode } from 'react'
 
 type HoverBoxProps = {
   children: ReactNode

@@ -12,8 +12,8 @@ import '../aframe-types.d.ts'
 
 type ChoiceBoxProps = {
   children: ReactNode
-  position: string,
-  rotation: string,
+  position: string
+  rotation: string
   onYes: (e: React.MouseEvent<HTMLElement>) => void
   onNo: (e: React.MouseEvent<HTMLElement>) => void
 }
@@ -108,7 +108,7 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({
             value="Yes"
             height="40"
             width="40"
-            align='center'
+            align="center"
           ></a-text>
         </HoverBox>
         <HoverBox
@@ -121,12 +121,12 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({
           width="4"
         >
           <a-text
-             position="0 0 0.1"
+            position="0 0 0.1"
             color="#FFF"
             value="No"
             height="40"
             width="40"
-            align='center'
+            align="center"
           ></a-text>
         </HoverBox>
       </a-plane>

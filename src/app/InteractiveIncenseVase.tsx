@@ -5,12 +5,15 @@ import IncenseVase from './IncenseVase'
 import IncenseStick, { IncenseStickProps } from './IncenseStick'
 import { useState } from 'react'
 
-type InteractiveIncenseVaseProps = { 
-  position: string, 
+type InteractiveIncenseVaseProps = {
+  position: string
   rotation: string
 }
 
-const InteractiveIncenseVase = ({ position, rotation = '0 0 0' }: InteractiveIncenseVaseProps) => {
+const InteractiveIncenseVase = ({
+  position,
+  rotation = '0 0 0',
+}: InteractiveIncenseVaseProps) => {
   const demoManage = (e: React.MouseEvent<HTMLElement>, m: string) =>
     console.log('message: ', m, e)
   const [incenseSticks, updateIncenseSticks] = useState<IncenseStickProps[]>([])
