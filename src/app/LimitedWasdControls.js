@@ -2,12 +2,12 @@ import 'aframe'
 
 AFRAME.registerComponent('limited-wasd-controls', {
   schema: {
-    minX: { type: 'number', default: -10 },
-    maxX: { type: 'number', default: 10 },
+    minX: { type: 'number', default: -1 },
+    maxX: { type: 'number', default: 1 },
     minY: { type: 'number', default: 0 },
-    maxY: { type: 'number', default: 10 },
-    minZ: { type: 'number', default: -10 },
-    maxZ: { type: 'number', default: 10 },
+    maxY: { type: 'number', default: 1 },
+    minZ: { type: 'number', default: -1 },
+    maxZ: { type: 'number', default: 1 },
   },
 
   init: function () {},

@@ -12,7 +12,8 @@ import '../aframe-types.d.ts'
 
 type ChoiceBoxProps = {
   children: ReactNode
-  position: string
+  position: string,
+  rotation: string,
   onYes: (e: React.MouseEvent<HTMLElement>) => void
   onNo: (e: React.MouseEvent<HTMLElement>) => void
 }
@@ -20,6 +21,7 @@ type ChoiceBoxProps = {
 const ChoiceBox: React.FC<ChoiceBoxProps> = ({
   children,
   position,
+  rotation = '0 0 0',
   onYes,
   onNo,
 }: ChoiceBoxProps) => {
@@ -66,72 +68,68 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({
   }, [])
 
   return (
-    <a-entity position={position} scale="2 2 2">
+    <a-entity position={position} rotation={rotation}>
       <a-light type="ambient" color="#FFF" intensity={lightIntensity}></a-light>
       <a-entity ref={modelRef} onClick={displayInfo}>
         {children}
       </a-entity>
-      <a-box
-        height="100"
-        width="100"
-        depth="1"
+      <a-plane
+        height="20"
+        width="20"
         color="#000"
         opacity="0.4"
-        position="0 120 -90"
-        scale="1 1 1"
-        rotation="0 90 0"
+        position="18 20 0"
         visible={showInfo}
         transparent={true}
       >
         <a-text
-          position="-48 19 2.5"
+          position="-9 9 0.3"
           color="#FFF"
           value="Want you to \nburn an incense \nstick?"
-          height="100"
-          width="100"
-          scale="3 3 3"
+          height="18"
+          width="19"
+          letter-spacing="1"
+          line-height="60"
+          baseline="top"
+          scale="2.8 2.8 2.8"
         ></a-text>
         <HoverBox
+          position="-7 -7 0.3"
           defaultColor="#000"
           hoverColor="#F00"
           onClick={onClickYes}
           opacity="0.4"
-          position="-31.864 -31.038 2.5"
-          height="30"
-          width="30"
+          height="3"
+          width="4"
         >
           <a-text
-            style={{ pointerEvents: 'none' }}
-            position="-10.208 -0.010 2.5"
+            position="0 0 0.1"
             color="#FFF"
             value="Yes"
-            height="100"
-            width="50"
-            text="height: 200"
-            scale="5 5 5"
+            height="40"
+            width="40"
+            align='center'
           ></a-text>
         </HoverBox>
         <HoverBox
+          position="7 -7 0.3"
           onClick={onClickNo}
           defaultColor="#000"
           hoverColor="#F00"
           opacity="0.4"
-          position="30.502 -31.038 2.5"
-          height="30"
-          width="30"
+          height="3"
+          width="4"
         >
           <a-text
-            style={{ pointerEvents: 'none' }}
-            position="-7.876 -0.010 2.5"
+             position="0 0 0.1"
             color="#FFF"
             value="No"
-            height="100"
-            width="50"
-            text="height: 200"
-            scale="5 5 5"
+            height="40"
+            width="40"
+            align='center'
           ></a-text>
         </HoverBox>
-      </a-box>
+      </a-plane>
     </a-entity>
   )
 }

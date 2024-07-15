@@ -29,6 +29,7 @@ declare namespace JSX {
       emissiveIntensity?: string | number
       src?: string
       material?: string
+      radius?: string
     }
     'a-entity': React.DetailedHTMLProps<
       React.HTMLAttributes<HTMLElement>,
@@ -53,6 +54,7 @@ declare namespace JSX {
       text?: string
       align?: string
       anchor?: string
+      baseline?: string
     }
     'a-cursor': React.DetailedHTMLProps<
       React.HTMLAttributes<HTMLElement>,
@@ -68,6 +70,7 @@ declare namespace JSX {
       width?: string | number
       rotation?: string | number
       visible?: boolean
+      transparent?: boolean
     }
   }
 }

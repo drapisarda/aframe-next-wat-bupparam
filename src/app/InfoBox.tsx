@@ -9,7 +9,8 @@ type InfoBoxProps = {
   height: string
   width: string
   rotation?: string
-  panelPosition?: 'left' | 'right'
+  panelPosition?: string
+  panelRotation?: string
 }
 
 const InfoBox: React.FC<InfoBoxProps> = ({
@@ -19,21 +20,17 @@ const InfoBox: React.FC<InfoBoxProps> = ({
   height,
   width,
   rotation,
-  panelPosition = 'right',
+  panelPosition = '0 0 -30',
+  panelRotation = '0 0 0'
 }) => {
   const maxOpacity = 0.4
+  const closeBoxHeight = "2"
+  const closeBoxWidth = "3"
   const [boxOpacity, setBoxOpacity] = useState(0)
   const [contentIsVisible, setContentIsVisible] = useState(false)
-
   const infoBoxHeight = children ? children.props.height : 0
   const infoBoxWidth = children ? children.props.width : 0
-  const infoBoxPositionX =
-    ((panelPosition === 'right' ? 1 : -1) *
-      (Number(width) + Number(infoBoxWidth))) /
-      2 +
-    50
-  const infoBoxPosition = `${infoBoxPositionX} 0 100`
-  const closeBoxPosition = `${Number(infoBoxWidth) / 2 - 40} ${Number(infoBoxHeight) / -2 + 30} 3`
+  const closeBoxPosition = `${(Number(infoBoxWidth) - Number(closeBoxHeight)) / 2 - 0.4} ${(Number(infoBoxHeight) - Number(closeBoxHeight)) / -2 + 0.3} 0.3`
 
   const boxRef = useRef<HTMLElement>(null)
 
@@ -89,34 +86,37 @@ const InfoBox: React.FC<InfoBoxProps> = ({
           width={width}
           onClick={show}
         ></a-plane>
-        <a-plane
-          visible={contentIsVisible}
-          position={infoBoxPosition}
-          height={infoBoxHeight}
-          width={infoBoxWidth}
-          color="#000"
-          opacity="0.4"
-        >
-          {children}
-          <HoverBox
-            position={closeBoxPosition}
-            defaultColor="#000"
-            hoverColor="#F00"
-            onClick={hide}
-            opacity="0.4"
-            height="40"
-            width="60"
-          >
-            <a-text
-              position="0 0 4"
-              height="400"
-              width="400"
-              align="center"
-              value="close"
-            />
-          </HoverBox>
-        </a-plane>
       </a-entity>
+      <a-plane
+        visible={contentIsVisible}
+        position={panelPosition}
+        rotation={panelRotation}
+        height={infoBoxHeight}
+        width={infoBoxWidth}
+        color="#000"
+        opacity="0.4"
+      >
+        {children}
+        <HoverBox
+          position={closeBoxPosition}
+          defaultColor="#000"
+          hoverColor="#F00"
+          onClick={hide}
+          opacity="0.4"
+          height={closeBoxHeight}
+          width={closeBoxWidth}
+        >
+          <a-text
+            position="0 0 0.1"
+            height="20"
+            width="20"
+            align="center"
+            value="close"
+            letter-spacing="1"
+            line-height="60"
+          />
+        </HoverBox>
+      </a-plane>
     </>
   )
 }

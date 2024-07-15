@@ -24,26 +24,27 @@ const Home: React.FC = () => {
           ></a-asset-item>
         </a-assets>
         <a-camera
-          position="0 0 5"
+          position="0 0 0.5"
           wasd-controls="acceleration: 1000"
-          limited-wasd-controls="minX: -50; maxX: 50; minY: -50; maxY: 50; minZ: -50; maxZ: 50"
+          limited-wasd-controls="minX: -5; maxX: 5; minY: -5; maxY: 5; minZ: -5; maxZ: 5"
         >
           <a-cursor></a-cursor>
         </a-camera>
         <a-sky
           color="#ECECEC"
-          scale="-2 2 2"
-          radius="300"
+          scale="-1 1 1"
+          radius="70"
           src="assets/images/temple-min.jpeg"
         ></a-sky>
         <InfoBox
-          position="-287.2466 -94.2787 -477.94721"
-          height="100"
-          width="100"
+          position="-14 -5 -23"
+          rotation="-20 45 0"
+          height="8"
+          width="5"
         >
           <a-text
-            height="256"
-            width="256"
+            height="20"
+            width="20"
             value="Suphankanlaya was a 16th-century Siamese princess who 
               was a queen consort of King Bayinnaung of Burma. 
               There are very few historical records of her life, but 
@@ -51,23 +52,24 @@ const Home: React.FC = () => {
               Many Thais revere her as a national heroine or even as a popular deity."
             anchor="center"
             align="left"
-            position="0 0 3"
-            letter-spacing="2"
+            position="0 0 0.03"
+            letter-spacing="1"
             line-height="60"
           />
         </InfoBox>
 
         <InfoBox
           id="jade-buddah"
-          position="40 60 400"
-          height="150"
-          width="150"
-          rotation="0 170 0"
-          panelPosition="left"
+          position="3 7 45"
+          height="12"
+          width="12"
+          rotation="0 180 0"
+          panelPosition="25 10 40"
+          panelRotation="0 200 0"
         >
           <a-text
-            height="280"
-            width="256"
+            height="28"
+            width="25"
             value="
               Buddhist art is visual art produced in the context of Buddhism. \n
               It includes depictions of Gautama Buddha and other Buddhas and bodhisattvas, 
@@ -89,26 +91,28 @@ const Home: React.FC = () => {
 
         <InfoBox
           id="royal-family"
-          position="-248 -46 508"
-          height="100"
-          width="100"
-          rotation="0 130 0"
+          position="-25 -5 50"
+          height="10"
+          width="10"
+          rotation="-25 130 0"
+          panelPosition="-30 0 29"
+          panelRotation="0 120 0"
         >
           <a-text
-            height="350"
-            width="256"
+            height="35"
+            width="25"
             value="
               The king of Thailand (Thai: พระมหากษัตริย์ไทย, historically, king of Siam; Thai: พระเจ้ากรุงสยาม) \n
               is the head of state and head of the ruling Royal House of Chakri.
             "
             anchor="center"
             align="left"
-            position="0 0 3"
+            position="0 0 1"
             letter-spacing="2"
             line-height="60"
           />
         </InfoBox>
-        <InteractiveIncenseVase position="-420 -387 28" />
+        <InteractiveIncenseVase position="-52 -40 0" rotation="0 90 0"/>
       </a-scene>
     </>
   )

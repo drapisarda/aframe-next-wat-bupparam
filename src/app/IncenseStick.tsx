@@ -12,37 +12,34 @@ const IncenseStick = ({ position, rotation }: IncenseStickProps) => {
     <a-entity className="incense" position={position} rotation={rotation}>
       <a-cylinder
         className="incense__ash"
-        height="1"
-        radius-top="0.5"
-        radius-bottom="0.5"
+        height="0.5"
+        radius="0.2"
         color="#ABABAB"
-        position="0 26 0"
+        position="0 5.25 0"
         normal-texture-offset="0"
       ></a-cylinder>
       <a-cylinder
         className="incense__burn"
-        height="0.3"
-        radius-top="0.5"
-        radius-bottom="0.5"
+        height="0.5"
+        radius="0.2"
         color="#F00"
         material="emissiveIntensity: 1; emissive: #F00"
-        position="0 25 0"
+        position="0 5 0"
       ></a-cylinder>
       <a-cylinder
         className="incense__body"
-        height="50"
-        radius-top="0.5"
-        radius-bottom="0.5"
+        height="10"
+        radius="0.2"
         color="#c4a46b"
         src="/assets/images/incense_text.min.jpg"
       ></a-cylinder>
       <a-box
         className="incense__stick"
-        height="20"
-        width="0.3"
-        depth="0.3"
-        position="0 -35 0"
-        color="#974038"
+        height="8"
+        width="0.2"
+        depth="0.2"
+        position="0 -5 0"
+        color="#C00"
       ></a-box>
     </a-entity>
   )

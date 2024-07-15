@@ -1,10 +1,8 @@
 import {
-  MouseEventHandler,
   useEffect,
   useRef,
   useState,
   ReactNode,
-  useCallback,
 } from 'react'
 
 type HoverBoxProps = {
