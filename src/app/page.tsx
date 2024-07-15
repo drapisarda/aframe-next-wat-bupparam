@@ -17,12 +17,6 @@ const Home: React.FC = () => {
     <>
       <a-scene my-scene id="scene" cursor="rayOrigin:mouse">
         <a-light type="ambient" color="#FFF" intensity="1"></a-light>
-        <a-assets>
-          <a-asset-item
-            id="vase"
-            src="assets/models/decorative_vase/scene.gltf"
-          ></a-asset-item>
-        </a-assets>
         <a-camera
           position="0 0 0.5"
           wasd-controls="acceleration: 1000"
@@ -30,18 +24,8 @@ const Home: React.FC = () => {
         >
           <a-cursor></a-cursor>
         </a-camera>
-        <a-sky
-          color="#ECECEC"
-          scale="-1 1 1"
-          radius="70"
-          src="assets/images/temple-min.jpeg"
-        ></a-sky>
-        <InfoBox
-          position="-14 -5 -23"
-          rotation="-20 45 0"
-          height="8"
-          width="5"
-        >
+        <a-sky color="#ECECEC" scale="-1 1 1" radius="70" src="#temple"></a-sky>
+        <InfoBox position="-14 -5 -23" rotation="-20 45 0" height="8" width="5">
           <a-text
             height="20"
             width="20"
@@ -112,7 +96,7 @@ const Home: React.FC = () => {
             line-height="60"
           />
         </InfoBox>
-        <InteractiveIncenseVase position="-52 -40 0" rotation="0 90 0"/>
+        <InteractiveIncenseVase position="-52 -40 0" rotation="0 90 0" />
       </a-scene>
     </>
   )
