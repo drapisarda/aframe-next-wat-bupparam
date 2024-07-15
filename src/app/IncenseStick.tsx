@@ -10,14 +10,6 @@ export type IncenseStickProps = {
 const IncenseStick = ({ position, rotation }: IncenseStickProps) => {
   return (
     <a-entity className="incense" position={position} rotation={rotation}>
-      <a-assets>
-        <a-asset-item
-          id="vase"
-          src="assets/models/decorative_vase/scene.gltf"
-        ></a-asset-item>
-        <img id="temple" src="assets/images/temple-min.jpeg"></img>
-        <img id="incense" src="/assets/images/incense_text.min.jpg"></img>
-      </a-assets>
       <a-cylinder
         className="incense__ash"
         height="0.5"
