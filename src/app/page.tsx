@@ -17,6 +17,14 @@ const Home: React.FC = () => {
     <>
       <a-scene my-scene id="scene" cursor="rayOrigin:mouse">
         <a-light type="ambient" color="#FFF" intensity="1"></a-light>
+        <a-assets>
+          <a-asset-item
+            id="vase"
+            src="assets/models/decorative_vase/scene.gltf"
+          ></a-asset-item>
+          <img id="temple" src="assets/images/temple-min.jpeg"></img>
+          <img id="incense" src="/assets/images/incense_text.min.jpg"></img>
+        </a-assets>
         <a-camera
           position="0 0 0.5"
           wasd-controls="acceleration: 1000"
