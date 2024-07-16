@@ -31,7 +31,10 @@ const Home: React.FC = () => {
           limited-wasd-controls="minX: -5; maxX: 5; minY: -5; maxY: 5; minZ: -5; maxZ: 5"
         >
           <a-entity>
-            <a-cursor geometry="primitive: sphere; radius: 0.01" material="color: #000;"></a-cursor>
+            <a-cursor
+              geometry="primitive: sphere; radius: 0.01"
+              material="color: #000;"
+            ></a-cursor>
           </a-entity>
         </a-camera>
         <a-sky color="#ECECEC" scale="-1 1 1" radius="70" src="#temple"></a-sky>
