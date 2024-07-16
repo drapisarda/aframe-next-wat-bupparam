@@ -40,6 +40,7 @@ declare namespace JSX {
       width?: string | number
       rotation?: string | number
       scale?: string | number
+      animation?: string | number
     }
     'a-text': React.DetailedHTMLProps<
       React.HTMLAttributes<HTMLElement>,
