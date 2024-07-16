@@ -1,10 +1,10 @@
 import React, {
-  MouseEventHandler,
   useEffect,
   useRef,
   useState,
   type ReactNode,
   useCallback,
+  memo
 } from 'react'
 
 import HoverBox from './HoverBox'
@@ -32,18 +32,20 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({
 
   const onClickYes = useCallback(
     (e: React.MouseEvent<HTMLElement>) => {
+      if (!showInfo) return
       onYes(e)
       hideInfo()
     },
-    [onYes, hideInfo],
+    [onYes, hideInfo, showInfo],
   )
 
   const onClickNo = useCallback(
     (e: React.MouseEvent<HTMLElement>) => {
+      if (!showInfo) return
       onNo(e)
       hideInfo()
     },
-    [onNo, hideInfo],
+    [onNo, hideInfo, showInfo],
   )
 
   const modelRef = useRef<HTMLElement>(null)
@@ -134,4 +136,4 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({
   )
 }
 
-export default ChoiceBox
+export default memo(ChoiceBox)
