@@ -59,11 +59,13 @@ const InfoBox: React.FC<InfoBoxProps> = ({
 
   const show = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation()
+    if (contentIsVisible) return
     setContentIsVisible(true)
     setBoxOpacity(0)
   }
   const hide = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation()
+    if (!contentIsVisible) return
     setContentIsVisible(false)
     setBoxOpacity(0)
   }
