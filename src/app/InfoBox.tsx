@@ -30,7 +30,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
   const [contentIsVisible, setContentIsVisible] = useState(false)
   const infoBoxHeight = children ? children.props.height : 0
   const infoBoxWidth = children ? children.props.width : 0
-  const closeBoxPosition = `${(Number(infoBoxWidth) - Number(closeBoxHeight)) / 2 - 0.4} ${(Number(infoBoxHeight) - Number(closeBoxHeight)) / -2 + 0.3} 0.3`
+  const closeBoxPosition = `${(Number(infoBoxWidth) - Number(closeBoxWidth)) / 2 - 1} ${(Number(infoBoxHeight) - Number(closeBoxHeight)) / -2 + 1} 0.3`
 
   const boxRef = useRef<HTMLElement>(null)
 
