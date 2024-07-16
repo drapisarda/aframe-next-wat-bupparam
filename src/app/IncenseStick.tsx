@@ -9,12 +9,8 @@ export type IncenseStickProps = {
 
 const IncenseStick = ({ position, rotation }: IncenseStickProps) => {
   return (
-    <a-entity
-      className="incense"
-      position={position}
-      rotation={rotation}
-    >
-      <a-entity animation="property: position; from: 20 20 80; to: 0 0 0; dur: 1000; easing: easeOutQuad;">
+    <a-entity className="incense" position={position} rotation={rotation}>
+      <a-entity animation="property: position; from: 50 50 80; to: 0 0 0; dur: 1000; easing: easeOutQuad;">
         <a-cylinder
           className="incense__ash"
           height="0.5"

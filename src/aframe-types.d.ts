@@ -60,7 +60,11 @@ declare namespace JSX {
     'a-cursor': React.DetailedHTMLProps<
       React.HTMLAttributes<HTMLElement>,
       HTMLElement
-    > & {}
+    > & {
+      raycaster?: string
+      geometry?: string
+      material?: string
+    }
     'a-plane': React.DetailedHTMLProps<
       React.HTMLAttributes<HTMLElement>,
       HTMLElement
