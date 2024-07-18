@@ -62,6 +62,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
       >
         <a-plane
           opacity="0"
+          class="clickable"
           event-set__mouseenter={checkContentVisible(
             'material.opacity:0;',
             'material.opacity:' + maxOpacity + ';',
@@ -86,6 +87,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
       >
         {children}
         <a-plane
+          class="clickable"
           position={closeBoxPosition}
           color="#000"
           onClick={hide}

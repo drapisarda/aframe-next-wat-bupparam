@@ -39,12 +39,6 @@ declare namespace JSX {
       anchor?: string
       baseline?: string
     }
-    'a-cursor': React.DetailedHTMLProps<
-      React.HTMLAttributes<HTMLElement>,
-      HTMLElement, common
-    > & {
-      raycaster?: string
-    }
     'a-plane': React.DetailedHTMLProps<
       React.HTMLAttributes<HTMLElement>,
       HTMLElement, common>

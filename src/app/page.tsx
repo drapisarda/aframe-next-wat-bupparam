@@ -23,19 +23,21 @@ const Home: React.FC = () => {
             id="vase"
             src="assets/models/decorative_vase/scene.gltf"
           ></a-asset-item>
-          <Image alt="the image of the temple" id="temple" src="/assets/images/temple-min.jpeg" width="8704" height="4352"/>
+          <Image alt="the image of the temple" id="temple" src="/assets/images/temple-min.jpeg" width="8704" height="4352" />
           <Image alt="incense stick" id="incense" src="/assets/images/incense_text.min.jpg" width="20" height="20" />
         </a-assets>
         <a-camera
-          position="0 0 0.5"
           wasd-controls="acceleration: 1000"
-          limited-wasd-controls="minX: -5; maxX: 5; minY: -5; maxY: 5; minZ: -5; maxZ: 5"
+          limited-wasd-c_ontrols="minX: -5; maxX: 5; minY: -5; maxY: 5; minZ: -5; maxZ: 5"
         >
-          <a-entity>
-            <a-cursor
-              geometry="primitive: sphere; radius: 0.01"
-              material="color: #000;"
-            ></a-cursor>
+          <a-entity 
+            cursor="fuse: true; fuseTimeout: 1500" 
+            position="0 0 -1" 
+            geometry="primitive: sphere; radius: 0.01" 
+            material="color: #000; opacity: 0.5" 
+            animation__fusing="startEvents: fusing; property: scale; from: 3 3 3; to: 1 1 1 ; dur: 1500; easing: linear;"
+            raycaster="objects: .clickable"
+          >
           </a-entity>
         </a-camera>
         <a-sky color="#ECECEC" scale="-1 1 1" radius="70" src="#temple"></a-sky>
@@ -110,7 +112,7 @@ const Home: React.FC = () => {
             line-height="60"
           />
         </InfoBox>
-        <InteractiveIncenseVase position="-52 -40 0" rotation="0 90 0" />
+        <InteractiveIncenseVase position="-47 -31 0" rotation="0 90 0" />
       </a-scene>
     </>
   )
