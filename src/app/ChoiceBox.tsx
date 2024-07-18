@@ -1,7 +1,5 @@
-import React, { useState, type ReactNode, useCallback, memo } from 'react'
+import React, { useState, type ReactNode, useCallback, memo, useEffect } from 'react'
 
-import 'aframe'
-import 'aframe-event-set-component'
 import '../aframe-types.d.ts'
 
 type ChoiceBoxProps = {
@@ -19,8 +17,11 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({
   onYes,
   onNo,
 }: ChoiceBoxProps) => {
+  useEffect(() => {
+    require('aframe')
+    require('aframe-event-set-component')
+  })
   const [showInfo, setShowInfo] = useState(false)
-  const [lightIntensity, setLightIntensity] = useState('0')
   const displayInfo = useCallback(() => setShowInfo(true), [])
   const hideInfo = useCallback(() => setShowInfo(false), [])
 

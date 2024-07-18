@@ -2,9 +2,9 @@
 
 import '../aframe-types.d.ts'
 
-import InfoBox from './InfoBox'
-
 import React, { useEffect } from 'react'
+
+import InfoBox from './InfoBox'
 import InteractiveIncenseVase from './InteractiveIncenseVase'
 
 const Home: React.FC = () => {

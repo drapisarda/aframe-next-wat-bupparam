@@ -1,7 +1,5 @@
-import { useEffect, useRef, useState, ReactElement } from 'react'
+import { useRef, useState, ReactElement, useEffect } from 'react'
 import '../aframe-types.d.ts'
-import 'aframe'
-import 'aframe-event-set-component'
 
 type InfoBoxProps = {
   id?: string
@@ -24,10 +22,14 @@ const InfoBox: React.FC<InfoBoxProps> = ({
   panelPosition = '0 0 -30',
   panelRotation = '0 0 0',
 }) => {
+  useEffect(() => {
+    require('aframe')
+    require('aframe-event-set-component')
+  })
+
   const maxOpacity = 0.4
   const closeBoxHeight = '2'
   const closeBoxWidth = '3'
-  const [boxOpacity, setBoxOpacity] = useState(0)
   const [contentIsVisible, setContentIsVisible] = useState(false)
   const infoBoxHeight = children ? children.props.height : 0
   const infoBoxWidth = children ? children.props.width : 0
@@ -42,13 +44,11 @@ const InfoBox: React.FC<InfoBoxProps> = ({
     e.stopPropagation()
     if (contentIsVisible) return
     setContentIsVisible(true)
-    setBoxOpacity(0)
   }
   const hide = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation()
     if (!contentIsVisible) return
     setContentIsVisible(false)
-    setBoxOpacity(0)
   }
 
   return (
@@ -64,7 +64,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
           opacity="0"
           event-set__mouseenter={checkContentVisible(
             'material.opacity:0;',
-            'material.opacity:0.4;',
+            'material.opacity:' + maxOpacity + ';',
           )}
           event-set__mouseleave="material.opacity:0;"
           ref={boxRef}
