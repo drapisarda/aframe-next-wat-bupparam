@@ -3,6 +3,7 @@
 import '../aframe-types.d.ts'
 
 import React, { useEffect } from 'react'
+import Image from 'next/image.js'
 
 import InfoBox from './InfoBox'
 import InteractiveIncenseVase from './InteractiveIncenseVase'
@@ -22,8 +23,8 @@ const Home: React.FC = () => {
             id="vase"
             src="assets/models/decorative_vase/scene.gltf"
           ></a-asset-item>
-          <img id="temple" src="assets/images/temple-min.jpeg"></img>
-          <img id="incense" src="/assets/images/incense_text.min.jpg"></img>
+          <Image alt="the image of the temple" id="temple" src="/assets/images/temple-min.jpeg" width="8704" height="4352"/>
+          <Image alt="incense stick" id="incense" src="/assets/images/incense_text.min.jpg" width="20" height="20" />
         </a-assets>
         <a-camera
           position="0 0 0.5"
