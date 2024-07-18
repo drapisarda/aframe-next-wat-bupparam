@@ -3,7 +3,7 @@
 import ChoiceBox from './ChoiceBox'
 import IncenseVase from './IncenseVase'
 import IncenseStick, { IncenseStickProps } from './IncenseStick'
-import { useState } from 'react'
+import { memo, useState } from 'react'
 
 type InteractiveIncenseVaseProps = {
   position: string
@@ -19,7 +19,7 @@ const InteractiveIncenseVase = ({
   const [incenseSticks, updateIncenseSticks] = useState<IncenseStickProps[]>([])
 
   const getRandomCoordinateXZ = () =>
-    Math.round((Math.random() * (3 + 3) - 3) * 100) / 100
+    Math.round((Math.random() * (2.5 + 2.5) - 2.5) * 100) / 100
   const getRandomCoordinateY = () =>
     Math.round((Math.random() * (25 - 22) + 22) * 100) / 100
   const getRandomRotation = () =>
@@ -55,4 +55,4 @@ const InteractiveIncenseVase = ({
   )
 }
 
-export default InteractiveIncenseVase
+export default memo(InteractiveIncenseVase)

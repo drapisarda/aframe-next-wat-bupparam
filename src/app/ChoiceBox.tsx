@@ -1,13 +1,7 @@
-import React, {
-  useEffect,
-  useRef,
-  useState,
-  type ReactNode,
-  useCallback,
-  memo
-} from 'react'
+import React, { useState, type ReactNode, useCallback, memo } from 'react'
 
-import HoverBox from './HoverBox'
+import 'aframe'
+import 'aframe-event-set-component'
 import '../aframe-types.d.ts'
 
 type ChoiceBoxProps = {
@@ -48,32 +42,15 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({
     [onNo, hideInfo, showInfo],
   )
 
-  const modelRef = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    const highlightModel = () => setLightIntensity('1')
-    const lowlightModel = () => setLightIntensity('0')
-
-    const model = modelRef.current
-
-    if (model) {
-      model.addEventListener('mouseenter', highlightModel)
-      model.addEventListener('mouseleave', lowlightModel)
-    }
-
-    return () => {
-      if (model) {
-        model.removeEventListener('mouseenter', highlightModel)
-        model.removeEventListener('mouseleave', lowlightModel)
-      }
-    }
-  }, [])
-
   return (
     <a-entity position={position} rotation={rotation}>
-      <a-light type="ambient" color="#FFF" intensity={lightIntensity}></a-light>
-      <a-entity ref={modelRef} onClick={displayInfo}>
+      <a-entity
+        onClick={displayInfo}
+        event-set__mouseenter="_target: #ambientLight; light.intensity: 1"
+        event-set__mouseleave="_target: #ambientLight; light.intensity: 0.5"
+      >
         {children}
+        <a-light type="ambient" id="ambientLight" color="#FFF" intensity="0" />
       </a-entity>
       <a-plane
         height="20"
@@ -95,14 +72,15 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({
           baseline="top"
           scale="2.8 2.8 2.8"
         ></a-text>
-        <HoverBox
+        <a-plane
           position="-7 -7 0.3"
-          defaultColor="#000"
-          hoverColor="#F00"
+          color="#000"
           onClick={onClickYes}
           opacity="0.4"
           height="3"
           width="4"
+          event-set__mouseenter="material.color:#F00;"
+          event-set__mouseleave="material.color: #000;"
         >
           <a-text
             position="0 0 0.1"
@@ -112,15 +90,16 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({
             width="40"
             align="center"
           ></a-text>
-        </HoverBox>
-        <HoverBox
+        </a-plane>
+        <a-plane
           position="7 -7 0.3"
           onClick={onClickNo}
-          defaultColor="#000"
-          hoverColor="#F00"
+          color="#000"
           opacity="0.4"
           height="3"
           width="4"
+          event-set__mouseenter="material.color:#F00;"
+          event-set__mouseleave="material.color: #000;"
         >
           <a-text
             position="0 0 0.1"
@@ -130,7 +109,7 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({
             width="40"
             align="center"
           ></a-text>
-        </HoverBox>
+        </a-plane>
       </a-plane>
     </a-entity>
   )

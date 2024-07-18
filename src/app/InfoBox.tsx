@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, ReactElement } from 'react'
-import HoverBox from './HoverBox'
 import '../aframe-types.d.ts'
+import 'aframe'
+import 'aframe-event-set-component'
 
 type InfoBoxProps = {
   id?: string
@@ -34,28 +35,8 @@ const InfoBox: React.FC<InfoBoxProps> = ({
 
   const boxRef = useRef<HTMLElement>(null)
 
-  useEffect(() => {
-    const handleMouseEnter = () => {
-      if (contentIsVisible) return
-      setBoxOpacity(maxOpacity)
-    }
-
-    const handleMouseLeave = () => {
-      if (contentIsVisible) return
-      setBoxOpacity(0)
-    }
-
-    const box = boxRef.current
-    if (!box) return
-
-    box.addEventListener('mouseenter', handleMouseEnter)
-    box.addEventListener('mouseleave', handleMouseLeave)
-
-    return () => {
-      box.removeEventListener('mouseenter', handleMouseEnter)
-      box.removeEventListener('mouseleave', handleMouseLeave)
-    }
-  }, [contentIsVisible])
+  const checkContentVisible = (valueForTrue: string, valueForFalse: string) =>
+    contentIsVisible ? valueForTrue : valueForFalse
 
   const show = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation()
@@ -80,7 +61,12 @@ const InfoBox: React.FC<InfoBoxProps> = ({
         rotation={rotation}
       >
         <a-plane
-          opacity={boxOpacity}
+          opacity="0"
+          event-set__mouseenter={checkContentVisible(
+            'material.opacity:0;',
+            'material.opacity:0.4;',
+          )}
+          event-set__mouseleave="material.opacity:0;"
           ref={boxRef}
           color="#ddc26d"
           position="0 0 0"
@@ -99,14 +85,15 @@ const InfoBox: React.FC<InfoBoxProps> = ({
         opacity="0.4"
       >
         {children}
-        <HoverBox
+        <a-plane
           position={closeBoxPosition}
-          defaultColor="#000"
-          hoverColor="#F00"
+          color="#000"
           onClick={hide}
           opacity="0.4"
           height={closeBoxHeight}
           width={closeBoxWidth}
+          event-set__mouseenter="material.color:#F00;"
+          event-set__mouseleave="material.color: #000;"
         >
           <a-text
             position="0 0 0.1"
@@ -117,7 +104,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
             letter-spacing="1"
             line-height="60"
           />
-        </HoverBox>
+        </a-plane>
       </a-plane>
     </>
   )
