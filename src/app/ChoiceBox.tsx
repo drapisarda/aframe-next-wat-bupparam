@@ -28,8 +28,18 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({
     require('aframe-event-set-component')
   })
   const [showInfo, setShowInfo] = useState(false)
-  const displayInfo = useCallback(() => setShowInfo(true), [])
-  const hideInfo = useCallback(() => setShowInfo(false), [])
+  const [triggerClass, setTriggerClass] = useState('clickable')
+  const [optionButtonClass, setOptionButtonClass] = useState('not-clickable')
+  const displayInfo = useCallback(() => {
+    setShowInfo(true)
+    setTriggerClass('not-clickable')
+    setOptionButtonClass('clickable')
+  }, [])
+  const hideInfo = useCallback(() => {
+    setShowInfo(false)
+    setTriggerClass('clickable')
+    setOptionButtonClass('not-clickable')
+  }, [])
 
   const onClickYes = useCallback(
     (e: React.MouseEvent<HTMLElement>) => {
@@ -52,7 +62,7 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({
   return (
     <a-entity position={position} rotation={rotation}>
       <a-box
-        class="clickable"
+        class={triggerClass}
         height={height}
         width={width}
         depth={depth}
@@ -86,13 +96,13 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({
           scale="2.8 2.8 2.8"
         ></a-text>
         <a-plane
-          class="clickable"
+          class={optionButtonClass}
           position="-7 -7 0.3"
-          onClick={onClickYes}
           color="#000"
           opacity="0.4"
           height="3"
           width="4"
+          onClick={onClickYes}
           event-set__mouseenter="material.color:#F00;"
           event-set__mouseleave="material.color: #000;"
         >
@@ -106,13 +116,13 @@ const ChoiceBox: React.FC<ChoiceBoxProps> = ({
           ></a-text>
         </a-plane>
         <a-plane
-          class="clickable"
+          class={optionButtonClass}
           position="7 -7 0.3"
-          onClick={onClickNo}
           color="#000"
           opacity="0.4"
           height="3"
           width="4"
+          onClick={onClickNo}
           event-set__mouseenter="material.color:#F00;"
           event-set__mouseleave="material.color: #000;"
         >

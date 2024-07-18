@@ -31,9 +31,11 @@ const InfoBox: React.FC<InfoBoxProps> = ({
   const closeBoxHeight = '2'
   const closeBoxWidth = '3'
   const [contentIsVisible, setContentIsVisible] = useState(false)
+  const [triggerPlaneClass, setTriggerPlaneClass] = useState('clickable')
+  const [optionButtonClass, setOptionButtonClass] = useState('not-clickable')
   const infoBoxHeight = children ? children.props.height : 0
   const infoBoxWidth = children ? children.props.width : 0
-  const closeBoxPosition = `${(Number(infoBoxWidth) - Number(closeBoxWidth)) / 2 - 1} ${(Number(infoBoxHeight) - Number(closeBoxHeight)) / -2 + 1} 0.3`
+  const closeBoxPosition = `${(Number(infoBoxWidth) - Number(closeBoxWidth)) / 2 - 1} ${(Number(infoBoxHeight) - Number(closeBoxHeight)) / -2 + 1} 0.4`
 
   const boxRef = useRef<HTMLElement>(null)
 
@@ -44,11 +46,15 @@ const InfoBox: React.FC<InfoBoxProps> = ({
     e.stopPropagation()
     if (contentIsVisible) return
     setContentIsVisible(true)
+    setTriggerPlaneClass('not-clickable')
+    setOptionButtonClass('clickable')
   }
   const hide = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation()
     if (!contentIsVisible) return
     setContentIsVisible(false)
+    setTriggerPlaneClass('clickable')
+    setOptionButtonClass('not-clickable')
   }
 
   return (
@@ -62,12 +68,12 @@ const InfoBox: React.FC<InfoBoxProps> = ({
       >
         <a-plane
           opacity="0"
-          class="clickable"
+          class={triggerPlaneClass}
           event-set__mouseenter={checkContentVisible(
             'material.opacity:0;',
             'material.opacity:' + maxOpacity + ';',
           )}
-          event-set__mouseleave="material.opacity:0;"
+          event-set__mouseleave="material.opacity: 0;"
           ref={boxRef}
           color="#ddc26d"
           position="0 0 0"
@@ -87,14 +93,14 @@ const InfoBox: React.FC<InfoBoxProps> = ({
       >
         {children}
         <a-plane
-          class="clickable"
+          class={optionButtonClass}
           position={closeBoxPosition}
           color="#000"
           onClick={hide}
           opacity="0.4"
           height={closeBoxHeight}
           width={closeBoxWidth}
-          event-set__mouseenter="material.color:#F00;"
+          event-set__mouseenter="material.color: #F00;"
           event-set__mouseleave="material.color: #000;"
         >
           <a-text
