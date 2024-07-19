@@ -18,11 +18,11 @@ const CustomCamera = () => {
         position="0 0 -1"
         geometry="primitive: sphere; radius: 0.01"
         material="color: #000; opacity: 0.5"
-        animation__fusing="startEvents: fusing, mouseenter; property: scale; from: 3 3 3; to: 1 1 1 ; dur: 1500; easing: linear; loop: 1"
-        animation__fusing_color="startEvents: fusing, mouseenter; property: material.color; from: #900; to: #F00 ; dur: 1500; easing: linear; loop: 1"
-        animation__fusing_opacity="startEvents: fusing, mouseenter; property: material.opacity; from: 0.5; to: 0.9 ; dur: 1500; easing: linear; loop: 1"
-        animation__mouseleave="startEvents: mouseleave; property: scale; from: 1 1 1; to: 1 1 1 ; dur: 1; easing: linear;"
-        animation__mouseleave_color="startEvents: mouseleave; property: material.color; from: #000; to: #000 ; dur: 1; easing: linear;"
+        animation__fusing="startEvents: fusing; property: scale; from: 3 3 3; to: 1 1 1; dur: 1500; easing: linear"
+        animation__fusing_color="startEvents: fusing; property: material.color; from: #900; to: #F00; dur: 1500; easing: linear"
+        animation__fusing_opacity="startEvents: fusing; property: material.opacity; from: 0.5; to: 0.9; dur: 1500; easing: linear"
+        animation__mouseleave="startEvents: mouseleave; property: scale; to: 1 1 1; dur: 1; easing: linear"
+        animation__mouseleave_color="startEvents: mouseleave; property: material.color; to: #000; dur: 1; easing: linear"
         raycaster="objects: .clickable"
       >
       </a-entity>

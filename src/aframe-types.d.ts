@@ -1,4 +1,4 @@
-declare type common = {
+declare type CommonAFrame = {
   position?: string
   height?: string | number
   width?: string | number
@@ -22,16 +22,16 @@ declare namespace JSX {
   interface IntrinsicElements {
     'a-box': React.DetailedHTMLProps<
       React.HTMLAttributes<HTMLElement>,
-      HTMLElement, common>
+      HTMLElement, CommonAFrame>
     'a-cylinder': React.DetailedHTMLProps<
       React.HTMLAttributes<HTMLElement>,
-      HTMLElement, common>
+      HTMLElement, CommonAFrame>
     'a-entity': React.DetailedHTMLProps<
       React.HTMLAttributes<HTMLElement>,
-      HTMLElement, common>
+      HTMLElement, CommonAFrame>
     'a-text': React.DetailedHTMLProps<
       React.HTMLAttributes<HTMLElement>,
-      HTMLElement, common
+      HTMLElement, CommonAFrame
     > & {
       value?: string
       text?: string
@@ -41,6 +41,6 @@ declare namespace JSX {
     }
     'a-plane': React.DetailedHTMLProps<
       React.HTMLAttributes<HTMLElement>,
-      HTMLElement, common>
+      HTMLElement, CommonAFrame>
   }
 }
