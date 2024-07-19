@@ -22,16 +22,23 @@ declare namespace JSX {
   interface IntrinsicElements {
     'a-box': React.DetailedHTMLProps<
       React.HTMLAttributes<HTMLElement>,
-      HTMLElement, CommonAFrame>
+      HTMLElement,
+      CommonAFrame
+    >
     'a-cylinder': React.DetailedHTMLProps<
       React.HTMLAttributes<HTMLElement>,
-      HTMLElement, CommonAFrame>
+      HTMLElement,
+      CommonAFrame
+    >
     'a-entity': React.DetailedHTMLProps<
       React.HTMLAttributes<HTMLElement>,
-      HTMLElement, CommonAFrame>
+      HTMLElement,
+      CommonAFrame
+    >
     'a-text': React.DetailedHTMLProps<
       React.HTMLAttributes<HTMLElement>,
-      HTMLElement, CommonAFrame
+      HTMLElement,
+      CommonAFrame
     > & {
       value?: string
       text?: string
@@ -41,6 +48,8 @@ declare namespace JSX {
     }
     'a-plane': React.DetailedHTMLProps<
       React.HTMLAttributes<HTMLElement>,
-      HTMLElement, CommonAFrame>
+      HTMLElement,
+      CommonAFrame
+    >
   }
 }

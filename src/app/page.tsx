@@ -24,8 +24,20 @@ const Home: React.FC = () => {
             id="vase"
             src="assets/models/decorative_vase/scene.gltf"
           ></a-asset-item>
-          <Image alt="the image of the temple" id="temple" src="/assets/images/temple-min.jpeg" width="8704" height="4352" />
-          <Image alt="incense stick" id="incense" src="/assets/images/incense_text.min.jpg" width="20" height="20" />
+          <Image
+            alt="the image of the temple"
+            id="temple"
+            src="/assets/images/temple-min.jpeg"
+            width="8704"
+            height="4352"
+          />
+          <Image
+            alt="incense stick"
+            id="incense"
+            src="/assets/images/incense_text.min.jpg"
+            width="20"
+            height="20"
+          />
         </a-assets>
         <CustomCamera />
         <a-sky color="#ECECEC" scale="-1 1 1" radius="70" src="#temple"></a-sky>

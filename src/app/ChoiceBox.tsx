@@ -1,4 +1,10 @@
-import React, { useState, type ReactNode, useCallback, memo, useEffect } from 'react'
+import React, {
+  useState,
+  type ReactNode,
+  useCallback,
+  memo,
+  useEffect,
+} from 'react'
 
 import '../aframe-types.d.ts'
 

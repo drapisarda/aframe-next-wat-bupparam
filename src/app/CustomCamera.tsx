@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect } from 'react'
 
 import '../aframe-types.d.ts'
 import 'types-aframe-react'
@@ -24,8 +24,7 @@ const CustomCamera = () => {
         animation__mouseleave="startEvents: mouseleave; property: scale; to: 1 1 1; dur: 1; easing: linear"
         animation__mouseleave_color="startEvents: mouseleave; property: material.color; to: #000; dur: 1; easing: linear"
         raycaster="objects: .clickable"
-      >
-      </a-entity>
+      ></a-entity>
     </a-camera>
   )
 }
