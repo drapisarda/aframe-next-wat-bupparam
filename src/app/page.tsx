@@ -3,7 +3,6 @@
 import '../aframe-types.d.ts'
 
 import React, { useEffect } from 'react'
-import Image from 'next/image.js'
 
 import InfoBox from './InfoBox'
 import CustomCamera from './CustomCamera'
@@ -19,24 +18,24 @@ const Home: React.FC = () => {
     <>
       <a-scene my-scene id="scene" cursor="rayOrigin:mouse">
         <a-light type="ambient" color="#FFF" intensity="1"></a-light>
-        <a-assets>
+        <a-assets style={{ visibility: 'hidden' }}>
           <a-asset-item
             id="vase"
             src="assets/models/decorative_vase/scene.gltf"
           ></a-asset-item>
-          <Image
+          <img
             alt="the image of the temple"
             id="temple"
             src="/assets/images/temple-min.jpeg"
             width="8704"
             height="4352"
           />
-          <Image
+          <img
             alt="incense stick"
             id="incense"
-            src="/assets/images/incense_text.min.jpg"
-            width="20"
-            height="20"
+            src="/assets/images/incense_text.jpg"
+            width="79"
+            height="491"
           />
         </a-assets>
         <CustomCamera />
